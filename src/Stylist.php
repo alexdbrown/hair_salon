@@ -68,6 +68,11 @@
             $this->setName($new_name);
         }
 
+        function delete()
+        {
+            
+        }
+
     }
 
  ?>
