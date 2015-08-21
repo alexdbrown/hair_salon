@@ -48,6 +48,20 @@
         return $app['twig']->render('stylists.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
     });
 
+    //Deletes one specific stylist
+    $app->delete("/stylists/{id}", function($id) use($app) {
+        $stylist = Stylist::find($id);
+        $stylist->delete()
+        return $app['twig']->render('index.html.twig', array('stylists' =>Stylist::getAll()));
+    });
 
+    //Clears all stylists
+    $app->post("/delete_stylists", function() use($app) {
+        Stylist::deleteAll();
+        return $app['twig']->render('index.html.twig', array('stylists' =>Stylist::getAll()));
+    });
+
+    //Creates new clients and displays them on the page
+    
 
  ?>
