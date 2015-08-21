@@ -62,6 +62,35 @@
     });
 
     //Creates new clients and displays them on the page
-    
+    $app->post("/restaurants", function() use($app) {
+        $name = $_POST['name'];
+        $phone = $_POST['phone'];
+        $style_choice = $_POST['style_choice'];
+        $stylist_id = $_POST['stylist_id'];
+        $client = new Client($name, $phone, $style_choice, $stylist_id);
+        $client->save();
+        $stylist = Stylist::find($stylist_id);
+        return $app['twig']->render('stylists.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  ?>
