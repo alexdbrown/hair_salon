@@ -70,8 +70,8 @@
                 $name = $client['name'];
                 $phone = $client['phone'];
                 $style_choice = $client['style_choice'];
-                $stlyist_id = $client['stylist_id'];
-                $id =$client['id'];
+                $stylist_id = $client['stylist_id'];
+                $id = $client['id'];
                 $new_client = new Client($name, $phone, $style_choice, $stylist_id, $id);
                 array_push($clients, $new_client);
             }
@@ -80,7 +80,7 @@
 
         static function deleteAll()
         {
-            
+            $GLOBALS['DB']->exec("DELETE FROM clients;");
         }
 
 
