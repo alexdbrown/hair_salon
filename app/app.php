@@ -62,7 +62,7 @@
     });
 
     //Creates new clients and displays them on the page
-    $app->post("/restaurants", function() use($app) {
+    $app->post("/clients", function() use($app) {
         $name = $_POST['name'];
         $phone = $_POST['phone'];
         $style_choice = $_POST['style_choice'];
@@ -71,6 +71,12 @@
         $client->save();
         $stylist = Stylist::find($stylist_id);
         return $app['twig']->render('stylists.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
+    //Allows user to edit a specific client
+    $app->get("/clients/{id}/edit", function($id) use($app) {
+        $client = Client::find($id);
+        return $app['twig']->render('clients_edit.html.twig', array('clients' => $client));
     });
 
 
