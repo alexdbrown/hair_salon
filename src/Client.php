@@ -58,6 +58,12 @@
 
         function save()
         {
+            $GLOBALS['DB']->exec("INSERT INTO clients (name, phone, style_choice, stylist_id) VALUES ('{$this->getName()}', '{$this->getPhone()}', '{$this->getStyleChoice()}',{$this->getStylistId()});");
+            $this->id = $GLOBALS['DB']->lastInsertId();
+        }
+
+        static function getAll()
+        {
             
         }
     }
