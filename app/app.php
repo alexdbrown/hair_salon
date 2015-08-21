@@ -40,7 +40,7 @@
         return $app['twig']->render('stylists_edit.html.twig', array('stylists' => $stylist));
     });
 
-    //Posts edited data to the database
+    //Posts edited stylist data to the database
     $app->patch("/stylists/{id}", function($id) use($app) {
         $name = $_POST['name'];
         $stylist = Stylist::find($id);
@@ -78,6 +78,19 @@
         $client = Client::find($id);
         return $app['twig']->render('clients_edit.html.twig', array('clients' => $client));
     });
+
+    //Posted edited client data to database
+    $app->patch("/clients/{id}", function($id) use($app) {
+        $client = Client::find($id);
+        $stylist = Stylist::find($_POST['stylist_id']);
+        foreach ($_POST as $key => $value) {
+            if (!empty ($value)) {
+                $client->update($key, $value);
+            }
+        }
+        return $app['twig']->render('index.html.twig', array('clients' => Client::getAll()));
+    });
+    
 
 
 
