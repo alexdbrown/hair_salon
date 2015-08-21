@@ -101,6 +101,11 @@
             $GLOBALS['DB']->exec("UPDATE clients SET {$column_to_update} = '{$new_information}' WHERE id = {$this->getId()};");
         }
 
+        function delete()
+        {
+            
+        }
+
 
 
 
