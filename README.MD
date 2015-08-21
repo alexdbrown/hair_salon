@@ -14,12 +14,25 @@ also link each client to an individual stylist.
 1. Clone repository from GitHub.
 2. Run $ composer install.
 3. Start php server in web directory.
+4. Run MySql in terminal - all command instructions below.
 4. Direct browser to localhost:8000/
+
 5. Enjoy.
 
 ## Technologies Used
 
 Twig, Silex, PHPUnit, PHP, HTML, CSS, mySQL
+
+## MySql commands to run
+-mysql.server start
+-mysql -uroot -proot
+>CREATE DATABASE hair_salon;
+>USE hair_salon;
+>CREATE TABLE stylists (id serial PRIMARY KEY, name VARCHAR (255));
+>CREATE TABLE clients (id serial PRIMARY KEY, name VARCHAR (255), phone VARCHAR (255), style_choice VARCHAR (255), stylist_id int);
+-in Bash terminal enter $ apachectl start and open browser to localhost:8080/phpmyadmin
+-copy database but rename as hair_salon_test
+-all done!
 
 ### Legal
 
