@@ -106,6 +106,29 @@
             $this->assertEquals($id, $result);
         }
 
+        function test_save()
+        {
+            //Arrange
+            $name = "Jackie";
+            $id = null;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $name = "Sandra Jane";
+            $phone = "542-334-0984";
+            $style_choice = "The Rachel";
+            $stylist_id = 1;
+            $id = null;
+            $test_client = new Client($name, $phone, $style_choice, $stylist_id, $id);
+
+            //Act
+            $test_client->save();
+
+            //Assert
+            $result = Client::getAll();
+            $this->assertEquals($id, $result[0]);
+        }
+
 
 
     }
