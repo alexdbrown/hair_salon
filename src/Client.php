@@ -20,5 +20,40 @@
         {
             return $this->name;
         }
+
+        function setName($new_name)
+        {
+            $this->name = (string) $new_name;
+        }
+
+        function getPhone()
+        {
+            return $this->phone;
+        }
+
+        function setPhone($new_phone)
+        {
+            $this->phone = (string) $new_phone;
+        }
+
+        function getStyleChoice()
+        {
+            return $this->style_choice;
+        }
+
+        function setStyleChoice($new_style_choice)
+        {
+            $this->style_choice = (string) $new_style_choice;
+        }
+
+        function getStylistId()
+        {
+            return $this->stylist_id;
+        }
+
+        function getId()
+        {
+            return $this->id;
+        }
     }
  ?>
