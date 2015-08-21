@@ -18,7 +18,7 @@
                 <p>Here are all the stylists:</p>
                 <ul>
                     {% for stylist in stylists %}
-                    <li><a href="/stylists/{{ cuisine.getId }}">{{ stylist.getName }}</a></li>
+                    <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
                     {% endfor %}
                 </ul>
             {% else %}
@@ -30,6 +30,6 @@
                     <button type='submit' class='btn btn-danger'>Delete all stylists</button>
                 </div>
             </form>
-        </div>        
+        </div>
     </body>
 </html>

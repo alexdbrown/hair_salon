@@ -6,7 +6,7 @@
     <body>
         <div class="container">
 
-        <h1>Update {{ stylists.getName }} Name</h1>
+        <h1>Update {{ stylist.getName }} Name</h1>
 
         <form action="/stylists/{{ stylists.getId }}" method="post">
             <input name="_method" type="hidden" value="patch">
@@ -15,13 +15,13 @@
                     <input id="name" name="name" type="text">
                 </div>
 
-          <button type="submit">Update!</button>
+          <button type="submit" class="btn btn-warning">Update!</button>
         </form>
 
         <form action="/stylists/{{ stylists.getId }}" method="post">
             <input name="_method" type="hidden" value="delete">
 
-            <button type="submit">Delete this stylist</button>
+            <button type="submit" class="btn btn-danger">Delete this stylist</button>
         </form>
     </body>
 </html>

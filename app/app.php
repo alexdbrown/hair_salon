@@ -13,8 +13,8 @@
 
     $app->register(new Silex\Provider\TwigServiceProvider(), array('twig.path' => __DIR__.'/../views'));
 
-    // use Symfony\Component\HttpFoundation\Request;
-    // Request::enableHttpMethodParameterOverride();
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
 
     //Landing page - displays any stylists that have been created
     $app->get("/", function() use($app) {
@@ -35,7 +35,7 @@
     });
 
     //Takes user to page where they can edit a specific stylist
-    $app->get("/stylists/{id}/edit", function($id use($app) {
+    $app->get("/stylists/{id}/edit", function($id) use($app) {
         $stylist = Stylist::find($id);
         return $app['twig']->render('stylists_edit.html.twig', array('stylists' => $stylist));
     });
@@ -51,7 +51,7 @@
     //Deletes one specific stylist
     $app->delete("/stylists/{id}", function($id) use($app) {
         $stylist = Stylist::find($id);
-        $stylist->delete()
+        $stylist->delete();
         return $app['twig']->render('index.html.twig', array('stylists' =>Stylist::getAll()));
     });
 
@@ -100,30 +100,11 @@
     //deletes specific client
     $app->delete("/clients/{id}", function($id) use ($app) {
         $client = Client::find($id);
-        $stylist = Stylist:find($_POST['stylist_id']);
+        $stylist = Stylist::find($_POST['stylist_id']);
         $client->delete();
         return $app['twig']->render('stylists.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return $app;
 
  ?>

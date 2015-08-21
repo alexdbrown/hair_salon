@@ -16,7 +16,7 @@
                                 <li>{{ client.getPhone }}</li>
                                 <li>{{ client.getStyleChoice }}</li>
                             </ul>
-                            <form action='/clients/{{ restaurant.getId }}/edit'>
+                            <form action='/clients/{{ client.getId }}/edit'>
                                 <div class="form-group">
                                     <button type="submit" class='btn btn-primary'>Edit Specific Client Info</button>
                                 </div>
@@ -47,7 +47,7 @@
 
             <form action='/stylists/{{ stylists.getId }}/edit'>
                 <div class="form-group">
-                    <button type="submit" class='btn btn-primary'>Edit this client's information</button>
+                    <button type="submit" class='btn btn-primary'>Edit this stylist's information</button>
                 </div>
             </form>
             <p><a href='/'>Home</a></p>
