@@ -96,6 +96,11 @@
             return $found_client;
         }
 
+        function update($column_to_update, $new_information)
+        {
+            
+        }
+
 
 
 

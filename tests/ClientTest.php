@@ -219,6 +219,34 @@
 
         }
 
+        function test_Update()
+        {
+            //Arrange
+            $name = "Jackie";
+            $test_stylist = new Stylist($name);
+            $test_stylist->save();
+
+            $name = "Sandra Jane";
+            $phone = "542-334-0984";
+            $style_choice = "The Rachel";
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($name, $phone, $style_choice, $stylist_id);
+            $test_client->save();
+
+            $column_to_update = "style_choice";
+            $new_information = "buffont";
+
+            //Act
+            $test_client->update($column_to_update, $new_information);
+
+            //Assert
+            $result = Client::getAll();
+            $this->assertEquals("buffont", $result[0]->getStyleChoice());
+
+
+
+        }
+
 
 
     }
