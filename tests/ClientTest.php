@@ -6,7 +6,7 @@
     */
 
     require_once "src/Client.php";
-    require_once "src/Stylist.php";
+    // require_once "src/Stylist.php";
 
     $server = 'mysql:host=localhost;dbname=hair_salon_test';
     $username = 'root';
@@ -21,7 +21,7 @@
         //     Client::deleteAll();
         // }
 
-        function getName()
+        function test_getName()
         {
             //Arrange
             $name = "Sandra Jane";
