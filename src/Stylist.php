@@ -33,7 +33,15 @@
 
         static function getAll()
         {
-            
+            $db_stylist = $GLOBALS['DB']->query("SELECT * FROM stylists;");
+            $stylists = array();
+            foreach ($db_stylist as $stylist) {
+                $name = $stylist['name'];
+                $id = $stylist['id'];
+                $new_stylist = new Stylist($name, $id);
+                array_push($stylist, $new_stylist);
+            }
+            return $stylists;
         }
 
     }
