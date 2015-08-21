@@ -33,20 +33,20 @@
 
         static function getAll()
         {
-            $db_stylist = $GLOBALS['DB']->query("SELECT * FROM stylists;");
+            $db_stylists = $GLOBALS['DB']->query("SELECT * FROM stylists;");
             $stylists = array();
-            foreach ($db_stylist as $stylist) {
+            foreach ($db_stylists as $stylist) {
                 $name = $stylist['name'];
                 $id = $stylist['id'];
                 $new_stylist = new Stylist($name, $id);
-                array_push($stylist, $new_stylist);
+                array_push($stylists, $new_stylist);
             }
             return $stylists;
         }
 
         static function deleteAll()
         {
-            
+            $GLOBALS['DB']->exec("DELETE FROM stylists;");
         }
 
     }
