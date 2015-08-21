@@ -31,21 +31,21 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
-        // function getClients()
-        // {
-        //     $clients = Array();
-        //     $db_clients = $GLOBALS['DB']->query("SELECT * FROM clients WHERE stylist_id = {$this->getId()};");
-        //     foreach ($db_clients as $client) {
-        //         $name = $client['name'];
-        //         $phone = $client['phone'];
-        //         $style_choice = $client['style_choice'];
-        //         $stylist_id = $client['stylist_id'];
-        //         $id = $client['id'];
-        //         $new_client = new Client($name, $phone, $style_choice, $stylist_id, $id);
-        //         array_push($clients, $new_client);
-        //     }
-        //     return $clients;
-        // }
+        function getClients()
+        {
+            $clients = Array();
+            $db_clients = $GLOBALS['DB']->query("SELECT * FROM clients WHERE stylist_id = {$this->getId()};");
+            foreach ($db_clients as $client) {
+                $name = $client['name'];
+                $phone = $client['phone'];
+                $style_choice = $client['style_choice'];
+                $stylist_id = $client['stylist_id'];
+                $id = $client['id'];
+                $new_client = new Client($name, $phone, $style_choice, $stylist_id, $id);
+                array_push($clients, $new_client);
+            }
+            return $clients;
+        }
 
         static function getAll()
         {
