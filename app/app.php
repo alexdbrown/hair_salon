@@ -34,6 +34,20 @@
         return $app['twig']->render('stylists.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
     });
 
+    //Takes user to page where they can edit a specific stylist
+    $app->get("/stylists/{id}/edit", function($id use($app) {
+        $stylist = Stylist::find($id);
+        return $app['twig']->render('stylists_edit.html.twig', array('stylists' => $stylist));
+    });
+
+    //Posts edited data to the database
+    $app->patch("/stylists/{id}", function($id) use($app) {
+        $name = $_POST['name'];
+        $stylist = Stylist::find($id);
+        $stylist->update($name);
+        return $app['twig']->render('stylists.html.twig', array('stylists' => $stylist, 'clients' => $stylist->getClients()));
+    });
+
 
 
  ?>
