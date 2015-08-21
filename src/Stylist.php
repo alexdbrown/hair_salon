@@ -62,6 +62,11 @@
             }
         }
 
+        function update($new_name)
+        {
+            
+        }
+
     }
 
  ?>
