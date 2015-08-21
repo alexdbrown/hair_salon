@@ -31,6 +31,11 @@
             $this->id = $GLOBALS['DB']->lastInsertId();
         }
 
+        static function getAll()
+        {
+            
+        }
+
     }
 
  ?>
