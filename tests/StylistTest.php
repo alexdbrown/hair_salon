@@ -31,7 +31,7 @@
             $result = $test_stylist->getName();
 
             //Assert
-            $this->assertEquals($name, $result):
+            $this->assertEquals($name, $result);
         }
 
 

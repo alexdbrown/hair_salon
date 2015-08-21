@@ -10,10 +10,15 @@
             $this->id = $id;
         }
 
-        function setName($new_name)
+        function getName()
         {
-            
+            return $this->name;
         }
+
+        // function setName($new_name)
+        // {
+        //
+        // }
 
     }
 
